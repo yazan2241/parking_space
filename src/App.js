@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import AddSpace from "./pages/AddSpace";
+import Home from "./pages/Home";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { SpaceProvider } from './providers/SpaceProvider';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-[#fdfdfd] h-screen flex flex-col items-center justify-start">
+      <SpaceProvider>
+        <Routes>
+          <Route path="/add" element={<AddSpace />} />
+          <Route path="/update/:id" element={<AddSpace />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </SpaceProvider>
+
+      <Footer />
     </div>
   );
 }
